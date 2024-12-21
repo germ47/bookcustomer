@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>고객 상세보기</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+			flex-direction: column;
+        }
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+	<header class="mb-8 flex items-center justify-between">
+		            <h1 class="text-3xl font-bold text-gray-800">자세히 보기</h1>
+		        </header>
+    <table border="1">
+        <tr>
+            <th>custid</th>
+            <td th:text="${customerDetail.custid}"></td>
+        </tr>
+        <tr>
+            <th>name</th>
+            <td th:text="${customerDetail.name}"></td>
+        </tr>
+        <tr>
+            <th>address</th>
+            <td th:text="${customerDetail.address}"></td>
+        </tr>
+        <tr>
+            <th>phone</th>
+            <td th:text="${customerDetail.phone}"></td>
+        </tr>
+    </table>
+    <div>
+        <button onclick="cuList()">목록</button>
+        <button onclick="cuUpdate()">수정</button>
+        <button onclick="cuDelete()">삭제</button>
+    </div>
+    <script th:inline="javascript">
+        const cuList = () => {
+            location.href = "/customerlist";
+        }
+        const cuUpdate = () => {
+            location.href = "/cuUpdate/[[${customerDetail.custid}]]";
+        }
+        const cuDelete = () => {
+            const ok = confirm("삭제하시겠습니까?");
+            if (ok) {
+                location.href = "/cuDelete/[[${customerDetail.custid}]]";
+            }
+        }
+    </script>
+</body>
+</html>

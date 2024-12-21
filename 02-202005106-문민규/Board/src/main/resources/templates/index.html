@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>고객과 도서</title>
+	<style>
+		.button-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 10px;
+			margin-top: 20px;
+		}
+		.styled {
+			width: 200px;
+			padding: 10px;
+			text-align: center;
+		}
+		.button-numbered {
+		    display: flex;
+		    align-items: center;
+		    gap: 5px;
+		} 
+	</style>
+</head>
+<body>
+	<div>
+	<h2><font size="50" color="#d92931">고객과 도서 정보</font></h2>
+	    <div style="float: right">
+		    <img src="/images/safety.png" width="320" height="205">
+	    </div>
+	    <div style="float: left">
+	        <img src="/images/ask.png" width="385" height="640">
+	    </div>
+			<br><br><br><br><br>
+			<p style="text-align: right">삐빅,정보 보안중!!</p>
+			<p style="font-size: 35px;">무엇을 도와드릴까요??</p>
+			<br>
+		<div class="button-container">
+			<div class="button-numbered">
+				<span>1. </span>
+				<button class="styled" type="button">
+					<a href="/list">도서목록 </a>
+				</button>
+			</div>
+			<br>
+			<div class="button-numbered">
+				<span>2.</span>
+				<button class="styled" type="button">
+					<a href="/addBook">도서추가 </a>
+				</button>
+			</div>
+			<br>
+			<div class="button-numbered">
+				<span>3. </span>
+				<button class="styled" type="button">
+					<a href="/customerlist">고객목록 </a>
+				</button>
+			</div>
+			<br>
+			<div class="button-numbered">
+				<span>4. </span>
+				<button class="styled" type="button">
+					<a href="/addCustomer">고객추가 </a>
+				</button>
+	    </div>
+	</div>
+</body>
+</html>
+

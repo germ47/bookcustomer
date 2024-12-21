@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>도서 상세보기</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+			flex-direction: column;
+        }
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+	<header class="mb-8 flex items-center justify-between">
+	            <h1 class="text-3xl font-bold text-gray-800">자세히 보기</h1>
+	        </header>
+    <table border="1">
+        <tr>
+            <th>bookid</th>
+            <td th:text="${bookDetail.bookid}"></td>
+        </tr>
+        <tr>
+            <th>bookname</th>
+            <td th:text="${bookDetail.bookname}"></td>
+        </tr>
+        <tr>
+            <th>publisher</th>
+            <td th:text="${bookDetail.publisher}"></td>
+        </tr>
+        <tr>
+            <th>price</th>
+            <td th:text="${bookDetail.price}"></td>
+        </tr>
+    </table>
+    <div>
+        <button onclick="goList()">목록</button>
+        <button onclick="goUpdate()">수정</button>
+        <button onclick="goDelete()">삭제</button>
+    </div>
+    <script th:inline="javascript">
+        const goList = () => {
+            location.href = "/list";
+        }
+        const goUpdate = () => {
+            location.href = "/goUpdate/[[${bookDetail.bookid}]]";
+        }
+        const goDelete = () => {
+            const ok = confirm("삭제하시겠습니까?");
+            if (ok) {
+                location.href = "/goDelete/[[${bookDetail.bookid}]]";
+            }
+        }
+    </script>
+</body>
+</html>
